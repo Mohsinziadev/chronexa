@@ -230,7 +230,18 @@ describe("calendar arithmetic", () => {
     fc.assert(
       fc.property(dtArb, fc.integer({ min: -400, max: 400 }), (d, n) => {
         const r = d.add({ days: n });
-        const gap = inspectLocalTime({ ...d.add({ days: n }).toObject() }, d.zone).status === "gap";
+        // The intended wall time is the original one on the shifted date, not the resolved result.
+        const target = new Date(Date.UTC(d.year, d.month - 1, d.day + n));
+        const intended = {
+          year: target.getUTCFullYear(),
+          month: target.getUTCMonth() + 1,
+          day: target.getUTCDate(),
+          hour: d.hour,
+          minute: d.minute,
+          second: d.second,
+          millisecond: d.millisecond,
+        };
+        const gap = inspectLocalTime(intended, d.zone).status === "gap";
         if (!gap) expect([r.hour, r.minute]).toEqual([d.hour, d.minute]);
         expect(r.zone.equals(d.zone)).toBe(true);
       }),
