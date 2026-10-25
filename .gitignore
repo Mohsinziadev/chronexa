@@ -1,0 +1,7 @@
+node_modules
+dist
+coverage
+docs/api
+.tmp
+*.tgz
+.DS_Store

@@ -1,0 +1,95 @@
+{
+  "name": "chronexa",
+  "version": "0.1.0",
+  "description": "The modern date and time toolkit for JavaScript and TypeScript: immutable DateTime, strict parsing, explicit time zones and DST handling, durations, intervals, business days and recurrence.",
+  "license": "MIT",
+  "author": "REPLACE_ME <you@example.com>",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "docs/*.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:tz": "TZ=America/Los_Angeles vitest run && TZ=Asia/Kolkata vitest run && TZ=Pacific/Apia vitest run",
+    "test:types": "vitest run --typecheck.only",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "bench": "npm run build && tsx benchmarks/run.ts",
+    "size": "npm run build && node scripts/size.mjs",
+    "docs": "typedoc",
+    "validate:package": "node scripts/validate-package.mjs",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run test && npm run test:types && npm run build && npm run validate:package",
+    "prepublishOnly": "npm run check",
+    "typecheck:bench": "npm run build && tsc -p benchmarks/tsconfig.json"
+  },
+  "keywords": [
+    "date",
+    "time",
+    "datetime",
+    "timezone",
+    "iana",
+    "dst",
+    "duration",
+    "interval",
+    "business-days",
+    "recurrence",
+    "relative-time",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/REPLACE_ME/chronexa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/REPLACE_ME/chronexa/issues"
+  },
+  "homepage": "https://github.com/REPLACE_ME/chronexa#readme",
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@eslint/js": "^10.0.1",
+    "@types/luxon": "^3.7.6",
+    "@types/node": "^22.20.5",
+    "@vitest/coverage-v8": "^5.0.5",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.13.0",
+    "fast-check": "^4.10.2",
+    "globals": "^17.13.0",
+    "luxon": "^3.7.2",
+    "prettier": "^3.9.10",
+    "publint": "^0.3.25",
+    "tsup": "^9.0.0",
+    "tsx": "^4.23.15",
+    "typedoc": "^0.28.20",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.0",
+    "vitest": "^5.0.5"
+  }
+}
