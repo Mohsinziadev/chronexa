@@ -1,0 +1,21 @@
+{
+  "slug": "chronexa",
+  "url": "https://www.m2toolkit.com/npm-packages/chronexa",
+  "siteName": "M2Toolkit",
+  "ogImage": "https://www.m2toolkit.com/opengraph-image",
+  "accent": "#c2410c",
+  "title": "chronexa",
+  "tagline": "A modern date and time toolkit for JavaScript and TypeScript, with explicit time zones.",
+  "runtimePlatform": "JavaScript",
+  "highlights": [
+    "Immutable DateTime that never rolls Feb 30 over into March",
+    "Explicit time zones, DST gaps and overlaps with a documented disambiguation policy",
+    "Durations, half-open intervals, business-day calendars and recurrence rules",
+    "Zero dependencies, ESM + CJS, built on Intl, about 13.5 kB min+gzip"
+  ],
+  "build": {
+    "root": "demo",
+    "viteConfig": "demo/vite.config.ts",
+    "serverEntry": "demo/entry-server.tsx"
+  }
+}

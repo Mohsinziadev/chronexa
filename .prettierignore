@@ -3,3 +3,4 @@ docs/api
 coverage
 package-lock.json
 .tmp
+site-dist

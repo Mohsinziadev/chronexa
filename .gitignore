@@ -5,3 +5,4 @@ docs/api
 .tmp
 *.tgz
 .DS_Store
+site-dist

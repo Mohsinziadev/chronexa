@@ -3,7 +3,7 @@ import tseslint from "typescript-eslint";
 import globals from "globals";
 
 export default tseslint.config(
-  { ignores: ["dist/**", "docs/api/**", "node_modules/**", "coverage/**", ".tmp/**"] },
+  { ignores: ["demo/snippets/**", "dist/**", "docs/api/**", "node_modules/**", "coverage/**", ".tmp/**", "site-dist/**"] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
